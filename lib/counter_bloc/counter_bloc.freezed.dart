@@ -292,37 +292,10 @@ abstract class Decrement implements CounterEvent {
 
 /// @nodoc
 mixin _$CounterState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  int get count => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CounterStateCopyWith<CounterState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -331,6 +304,8 @@ abstract class $CounterStateCopyWith<$Res> {
   factory $CounterStateCopyWith(
           CounterState value, $Res Function(CounterState) then) =
       _$CounterStateCopyWithImpl<$Res, CounterState>;
+  @useResult
+  $Res call({int count});
 }
 
 /// @nodoc
@@ -342,106 +317,100 @@ class _$CounterStateCopyWithImpl<$Res, $Val extends CounterState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? count = null,
+  }) {
+    return _then(_value.copyWith(
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$CounterStateImplCopyWith<$Res>
+    implements $CounterStateCopyWith<$Res> {
+  factory _$$CounterStateImplCopyWith(
+          _$CounterStateImpl value, $Res Function(_$CounterStateImpl) then) =
+      __$$CounterStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int count});
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$CounterStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$CounterStateImplCopyWithImpl<$Res>
+    extends _$CounterStateCopyWithImpl<$Res, _$CounterStateImpl>
+    implements _$$CounterStateImplCopyWith<$Res> {
+  __$$CounterStateImplCopyWithImpl(
+      _$CounterStateImpl _value, $Res Function(_$CounterStateImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? count = null,
+  }) {
+    return _then(_$CounterStateImpl(
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
-  const _$InitialImpl();
+class _$CounterStateImpl with DiagnosticableTreeMixin implements _CounterState {
+  const _$CounterStateImpl({required this.count});
+
+  @override
+  final int count;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CounterState.initial()';
+    return 'CounterState(count: $count)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'CounterState.initial'));
+    properties
+      ..add(DiagnosticsProperty('type', 'CounterState'))
+      ..add(DiagnosticsProperty('count', count));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$CounterStateImpl &&
+            (identical(other.count, count) || other.count == count));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, count);
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$CounterStateImplCopyWith<_$CounterStateImpl> get copyWith =>
+      __$$CounterStateImplCopyWithImpl<_$CounterStateImpl>(this, _$identity);
 }
 
-abstract class _Initial implements CounterState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _CounterState implements CounterState {
+  const factory _CounterState({required final int count}) = _$CounterStateImpl;
+
+  @override
+  int get count;
+  @override
+  @JsonKey(ignore: true)
+  _$$CounterStateImplCopyWith<_$CounterStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
