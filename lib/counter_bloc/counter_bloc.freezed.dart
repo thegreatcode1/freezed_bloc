@@ -18,33 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CounterEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() increment,
+    required TResult Function() decrement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? increment,
+    TResult? Function()? decrement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? increment,
+    TResult Function()? decrement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Increment value) increment,
+    required TResult Function(Decrement value) decrement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Increment value)? increment,
+    TResult? Function(Decrement value)? decrement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Increment value)? increment,
+    TResult Function(Decrement value)? decrement,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,35 +75,41 @@ class _$CounterEventCopyWithImpl<$Res, $Val extends CounterEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+abstract class _$$IncrementImplCopyWith<$Res> {
+  factory _$$IncrementImplCopyWith(
+          _$IncrementImpl value, $Res Function(_$IncrementImpl) then) =
+      __$$IncrementImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$CounterEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+class __$$IncrementImplCopyWithImpl<$Res>
+    extends _$CounterEventCopyWithImpl<$Res, _$IncrementImpl>
+    implements _$$IncrementImplCopyWith<$Res> {
+  __$$IncrementImplCopyWithImpl(
+      _$IncrementImpl _value, $Res Function(_$IncrementImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _$IncrementImpl with DiagnosticableTreeMixin implements Increment {
+  const _$IncrementImpl();
 
   @override
-  String toString() {
-    return 'CounterEvent.started()';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CounterEvent.increment()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CounterEvent.increment'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType && other is _$IncrementImpl);
   }
 
   @override
@@ -106,27 +118,30 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() increment,
+    required TResult Function() decrement,
   }) {
-    return started();
+    return increment();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? increment,
+    TResult? Function()? decrement,
   }) {
-    return started?.call();
+    return increment?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? increment,
+    TResult Function()? decrement,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (increment != null) {
+      return increment();
     }
     return orElse();
   }
@@ -134,34 +149,145 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(Increment value) increment,
+    required TResult Function(Decrement value) decrement,
   }) {
-    return started(this);
+    return increment(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(Increment value)? increment,
+    TResult? Function(Decrement value)? decrement,
   }) {
-    return started?.call(this);
+    return increment?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(Increment value)? increment,
+    TResult Function(Decrement value)? decrement,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (increment != null) {
+      return increment(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements CounterEvent {
-  const factory _Started() = _$StartedImpl;
+abstract class Increment implements CounterEvent {
+  const factory Increment() = _$IncrementImpl;
+}
+
+/// @nodoc
+abstract class _$$DecrementImplCopyWith<$Res> {
+  factory _$$DecrementImplCopyWith(
+          _$DecrementImpl value, $Res Function(_$DecrementImpl) then) =
+      __$$DecrementImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DecrementImplCopyWithImpl<$Res>
+    extends _$CounterEventCopyWithImpl<$Res, _$DecrementImpl>
+    implements _$$DecrementImplCopyWith<$Res> {
+  __$$DecrementImplCopyWithImpl(
+      _$DecrementImpl _value, $Res Function(_$DecrementImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DecrementImpl with DiagnosticableTreeMixin implements Decrement {
+  const _$DecrementImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CounterEvent.decrement()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CounterEvent.decrement'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DecrementImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() increment,
+    required TResult Function() decrement,
+  }) {
+    return decrement();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? increment,
+    TResult? Function()? decrement,
+  }) {
+    return decrement?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? increment,
+    TResult Function()? decrement,
+    required TResult orElse(),
+  }) {
+    if (decrement != null) {
+      return decrement();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Increment value) increment,
+    required TResult Function(Decrement value) decrement,
+  }) {
+    return decrement(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Increment value)? increment,
+    TResult? Function(Decrement value)? decrement,
+  }) {
+    return decrement?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Increment value)? increment,
+    TResult Function(Decrement value)? decrement,
+    required TResult orElse(),
+  }) {
+    if (decrement != null) {
+      return decrement(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Decrement implements CounterEvent {
+  const factory Decrement() = _$DecrementImpl;
 }
 
 /// @nodoc
@@ -236,12 +362,18 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   const _$InitialImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CounterState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CounterState.initial'));
   }
 
   @override
