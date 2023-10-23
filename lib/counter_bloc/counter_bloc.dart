@@ -7,9 +7,14 @@ part 'counter_state.dart';
 part 'counter_bloc.freezed.dart';
 
 class CounterBloc extends Bloc<CounterEvent, CounterState> {
-  CounterBloc() : super(_Initial()) {
-    on<CounterEvent>((event, emit) {
-      // TODO: implement event handler
+  CounterBloc() : super(CounterState.initial()) {
+    //incrementing
+    on<Increment>((event, emit) {
+      return emit(state.copyWith(count: state.count + 1));
+    });
+    //decrementing
+    on<Decrement>((event, emit) {
+      return emit(state.copyWith(count: state.count - 1));
     });
   }
 }
