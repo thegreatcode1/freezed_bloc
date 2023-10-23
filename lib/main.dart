@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:freezed_with_bloc_counter/counter_bloc/counter_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(BlocProvider(
+    create: (context) => CounterBloc(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -59,7 +65,7 @@ class MyHomePage extends StatelessWidget {
             child: FloatingActionButton(
               onPressed: () {
                 //new methord ui refreshing
-                context.read<CounterBloc>().add(Increment());
+                context.read<CounterBloc>().add(const Increment());
                 //old methord ui refreshing
                 //BlocProvider.of<CounterBloc>(context).add(Increment());
               },
@@ -72,7 +78,7 @@ class MyHomePage extends StatelessWidget {
           FloatingActionButton(
             onPressed: () {
               //new methord ui refreshing
-              context.read<CounterBloc>().add(Decrement());
+              context.read<CounterBloc>().add(const Decrement());
               //old methord ui refreshing
               //BlocProvider.of<CounterBloc>(context).add(Increment());
             },
