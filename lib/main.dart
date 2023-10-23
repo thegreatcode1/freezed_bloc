@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:freezed_with_bloc_counter/counter_bloc/counter_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(BlocProvider(
@@ -32,8 +31,6 @@ class MyHomePage extends StatelessWidget {
 
   final String title;
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,14 +45,18 @@ class MyHomePage extends StatelessWidget {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              "",
-              style: Theme.of(context).textTheme.headlineMedium,
+            BlocBuilder<CounterBloc, CounterState>(
+              builder: (context, state) {
+                return Text(
+                  "${state.count}",
+                  style: Theme.of(context).textTheme.headlineMedium,
+                );
+              },
             ),
           ],
         ),
       ),
-     floatingActionButton: Row(
+      floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           //increment button
